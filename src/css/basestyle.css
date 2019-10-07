@@ -1,0 +1,17 @@
+.left-side{
+    width: 50%; height: 100px; float: left; 
+    /* background: green; */
+}
+
+.right-side{
+    margin-left: 50%; height: 100px; 
+    /* background: blue; */
+}
+
+.widh-full{
+    width: 100%;
+}
+
+.max-image{
+    width:128px;
+}
