@@ -1,5 +1,6 @@
 import React  from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import './../css/basestyle.css';
 
 class About extends React.Component {
@@ -16,10 +17,13 @@ class About extends React.Component {
           .then((response)=>{
               let kumpulandata=response.data;
               let i;
+             
               for (i = 0; i < kumpulandata.length; i++) {
                 // console.log(kumpulandata[i].createdAt);
-                create_element_get1(kumpulandata[i].createdAt,kumpulandata[i].name,kumpulandata[i].avatar)
-               }
+                create_element_get1(fix_waktu(kumpulandata[i].createdAt),kumpulandata[i].name,kumpulandata[i].avatar)
+                //console.log(kumpulandata[i].createdAt);
+                ;
+                }
           }); 
       };
     
@@ -31,9 +35,10 @@ class About extends React.Component {
             let i;
 
             for (i = 0; i < kumpulandata.length; i++) {
-               console.log(kumpulandata[i].createdAt);
-               create_element_get2(kumpulandata[i].createdAt,kumpulandata[i].photos,kumpulandata[i].count_likes)
-             }
+               //console.log(kumpulandata[i].createdAt);
+               create_element_get2(fix_waktu(kumpulandata[i].createdAt),kumpulandata[i].photos,kumpulandata[i].count_likes)
+                
+            }
         }); 
     };
 
@@ -119,6 +124,21 @@ class About extends React.Component {
     tr1.appendChild(tdimg);
     tr1.appendChild(tdcounting);
     document.getElementById("tables2").appendChild(tr1);
+  }
+
+  function fix_waktu(strwaktu){
+                let kalender;
+                let waktu;
+                let stringkalender;
+                // console.log(strwaktu);
+                kalender = strwaktu.substring(0,10);
+                waktu = strwaktu.substring(11,22);
+                //console.log(waktu);
+                let kalendersplit = kalender.split('-');
+                stringkalender=moment(kalendersplit[1]+'-'+kalendersplit[2]+'-'+kalendersplit[0]+' '+waktu).format('MMMM Do YYYY, h:mm:ss a');
+                //console.log(stringkalender);
+                return stringkalender;
+            
   }
 
  export default About;
