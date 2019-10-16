@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 //import './index.css';
 import { DatePicker,Icon, Input, Form, Modal, Button } from 'antd';
 
-class About extends React.Component {
+class ListUser extends React.Component {
 
     constructor(props) {
         super(props);
@@ -117,7 +117,7 @@ class About extends React.Component {
                             <Button onClick={this.users_get} type="primary">GET</Button>
                             <Button type="primary" onClick={this.showModal}>
                                 Open Modal
-                    </Button>
+                            </Button>
                             <Modal
                                 title="Basic Modal"
                                 visible={this.state.visible}
@@ -149,6 +149,8 @@ class About extends React.Component {
                                     <td>Created</td>
                                     <td>Name</td>
                                     <td>Avatar</td>
+                                    <td>Email</td>
+                                    <td>Action</td>
                                 </tr>
                                 {/* <tr>
                                 <td>2019-09-30T17:14:38.699Z</td>
@@ -158,24 +160,7 @@ class About extends React.Component {
                             </table>
                         </div>
                     </div>
-                    <div class="right-side">
-                        <div id="variablepost">
-                            <Button onClick={this.posting_get} type="primary">GET</Button>
-
-                            <table border="1" id="tables2">
-                                <tr>
-                                    <td>Created</td>
-                                    <td>Avatar</td>
-                                    <td>Count</td>
-                                </tr>
-                                {/* <tr>
-                                <td>2019-09-30T17:14:38.699Z</td>
-                                <td>Cristopher </td>
-                                <td><img src="https://s3.amazonaws.com/uifaces/faces/twitter/iamsteffen/128.jpg"/></td>
-                            </tr> */}
-                            </table>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         )
@@ -242,4 +227,4 @@ function fix_waktu(strwaktu) {
 
 }
 
-export default About;
+export default ListUser;
